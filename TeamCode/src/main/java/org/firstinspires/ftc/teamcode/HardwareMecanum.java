@@ -69,12 +69,13 @@ public class HardwareMecanum {
     public DcMotor  backLeftDrive    = null;
     public DcMotor  backRightDrive   = null;
     public DcMotor climb = null;
+    public DcMotor climbBend = null;
     public DcMotor arm = null;
     public Servo elbow = null;
     public Servo wrist = null;
     public Servo claw = null;
 
-
+//how goon????
 
 
 
@@ -99,7 +100,7 @@ public class HardwareMecanum {
 
     }
 
-
+//how goon????
     // Define a constructor that allows the OpMode to pass a reference to itself.
     public HardwareMecanum(LinearOpMode opmode) {
         myOpMode = opmode;
@@ -121,9 +122,10 @@ public class HardwareMecanum {
         backLeftDrive = hwMap.get(DcMotor.class, "lb");
         backRightDrive = hwMap.get(DcMotor.class, "rb");
         climb = hwMap.get(DcMotor.class, "climb");
+        climbBend = hwMap.get(DcMotor.class, "climbBend");
         arm = hwMap.get(DcMotor.class, "arm");
 
-
+//how goon????
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
         // Pushing the left stick forward MUST make robot go forward. So adjust these two lines based on your first test drive.
         // Note: The settings here assume direct drive on left and right wheels.  Gear Reduction or 90 Deg drives may require direction flips
@@ -132,6 +134,7 @@ public class HardwareMecanum {
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
         climb.setDirection(DcMotorSimple.Direction.REVERSE);
+        climbBend.setDirection(DcMotorSimple.Direction.FORWARD);
         arm.setDirection(DcMotor.Direction.REVERSE);
 
 
@@ -144,10 +147,10 @@ public class HardwareMecanum {
         //arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         //climb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        //climb.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        climb.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        //arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
+        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+//how goon????
 
         // Set all motors to zero power
         frontLeftDrive.setPower(0);
@@ -155,6 +158,7 @@ public class HardwareMecanum {
         backLeftDrive.setPower(0);
         backRightDrive.setPower(0);
         climb.setPower(0);
+        climbBend.setPower(0);
         arm.setPower(0);
 //how goon????
 //how goon????

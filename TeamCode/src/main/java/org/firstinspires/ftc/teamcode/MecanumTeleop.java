@@ -134,12 +134,20 @@ public class MecanumTeleop extends LinearOpMode {
                 robot.arm.setPower(0);
             }
 
-            if (gamepad1.right_bumper) {
+            if (gamepad1.y) {
                 robot.climb.setPower(1);
-            }else if (gamepad1.left_bumper) {
+            }else if (gamepad1.a) {
                 robot.climb.setPower(-1);
             }else{
                 robot.climb.setPower(0);
+            }
+
+            if (gamepad1.b) {
+                robot.climbBend.setPower(0.5);
+            }else if (gamepad1.x) {
+                robot.climbBend.setPower(-0.5);
+            }else{
+                robot.climbBend.setPower(0);
             }
 
 
