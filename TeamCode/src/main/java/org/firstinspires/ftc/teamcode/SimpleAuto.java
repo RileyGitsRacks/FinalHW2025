@@ -44,9 +44,9 @@ public class SimpleAuto extends LinearOpMode {
     HardwareMecanum robot = new HardwareMecanum();
     private ElapsedTime     runtime = new ElapsedTime();
 
-    void drive(double drive, double strafe) {
+    /*void drive(double drive, double strafe) {
 
-        // Forward and right is POSITIVE
+        /* Forward and right is POSITIVE
         robot.frontLeftDrive.setPower(drive + strafe);
         robot.frontRightDrive.setPower(drive - strafe);
         robot.backLeftDrive.setPower(drive - strafe);
@@ -59,8 +59,49 @@ public class SimpleAuto extends LinearOpMode {
         robot.frontRightDrive.setPower(-power);
         robot.backLeftDrive.setPower(power);
         robot.backRightDrive.setPower(-power);
+    }*/
+
+    public void forward() {
+        robot.frontLeftDrive.setPower(0.5);
+        robot.frontRightDrive.setPower(0.5);
+        robot.backLeftDrive.setPower(0.5);
+        robot.backRightDrive.setPower(0.5);
     }
 
+    public void backwards() {
+        robot.frontLeftDrive.setPower(0.5);
+        robot.frontRightDrive.setPower(0.5);
+        robot.backLeftDrive.setPower(0.5);
+        robot.backRightDrive.setPower(0.5);
+    }
+
+    public void right() {
+        robot.frontLeftDrive.setPower(0.5);
+        robot.frontRightDrive.setPower(-0.5);
+        robot.backLeftDrive.setPower(-0.5);
+        robot.backRightDrive.setPower(0.5);
+    }
+
+    public void left() {
+        robot.frontLeftDrive.setPower(-0.5);
+        robot.frontRightDrive.setPower(0.5);
+        robot.backLeftDrive.setPower(0.5);
+        robot.backRightDrive.setPower(-0.5);
+    }
+
+    public void spinRight() {
+        robot.frontLeftDrive.setPower(0.5);
+        robot.frontRightDrive.setPower(-0.5);
+        robot.backLeftDrive.setPower(0.5);
+        robot.backRightDrive.setPower(-0.5);
+    }
+
+    public void spinLeft() {
+        robot.frontLeftDrive.setPower(-0.5);
+        robot.frontRightDrive.setPower(0.5);
+        robot.backLeftDrive.setPower(-0.5);
+        robot.backRightDrive.setPower(0.5);
+    }
 
     @Override
     public void runOpMode() {
@@ -86,7 +127,7 @@ public class SimpleAuto extends LinearOpMode {
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
         // Drive the robot forward
-        drive(0.5,0);
+        drive(1,0);
         sleep(1000); // stay here on the code for 1 second, don't move on to the next instructions.
 
         drive(0,0);
@@ -96,8 +137,10 @@ public class SimpleAuto extends LinearOpMode {
 
         drive(0,0);
 
-        drive(-0.5,0);
+        drive(1,0);
         sleep(1000); // stay here on the code for 1 second, don't move on to the next instructions.
+
+        drive(0,0);
 
         // Rise lifts
         /*robot.liftMotor1.setPower(1);

@@ -80,29 +80,63 @@ public class SimpleAutoBucket extends LinearOpMode {
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-
+//how goon????
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
 
         // Drive the robot forward
-        drive(0.5,0);
-        sleep(1000); // stay here on the code for 1 second, don't move on to the next instructions.
-
-        drive(0,0);
-
         drive(0,1);
-        sleep(4600); // stay here on the code for 1 second, don't move on to the next instructions.
+        sleep(750);
 
         drive(0,0);
 
-        drive(-0.5,0);
-        sleep(1000); // stay here on the code for 1 second, don't move on to the next instructions.
+        spin(-1);
+        sleep(200);
+
+        spin(0);
+
+        drive(1,0);
+        sleep(300);
+
+        drive(0,0);
 
         // Rise lifts
-        /*robot.liftMotor1.setPower(1);
-        robot.liftMotor2.setPower(1);
-        sleep(2900);
-        robot.liftMotor1.setPower(0);
-        robot.liftMotor2.setPower(0);*/
+        robot.arm.setPower(1);
+        sleep(4500);
+
+        drive(0,0);
+
+        robot.elbow.setPosition(0.4);
+
+        robot.claw.setPosition(0.7);
+
+        robot.elbow.setPosition(0.6);
+
+        robot.claw.setPosition(1);
+
+        robot.arm.setPower(-1);
+        sleep(4000);
+
+        robot.arm.setPower(0);
+
+        spin(1);
+        sleep(200);
+
+        spin(0);
+
+        drive(0,1);
+        sleep(300);
+
+        drive(0,0);
+
+        drive(-1,0);
+        sleep(4600);
+
+        drive(0,0);
+
+        drive(0,-1);
+        sleep(1000);
+
+        drive(0,0);
 
 
 
